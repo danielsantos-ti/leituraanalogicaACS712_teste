@@ -2,7 +2,7 @@
 #include <Arduino.h>
 
 // Pino de entrada do sensor de corrente ACS712 de 30A
-int pinoAnalogico = A0;
+int sensorACS = A0;
 
 // Variável armazena valor lido
 int armazenaValorAnalogicoLino = 0;
@@ -30,10 +30,10 @@ void setup() {
 void loop() {
   
   // Lê o valor do sensor de corrente
-  armazenaValorAnalogicoLino = analogRead(pinoAnalogico);
+  armazenaValorAnalogicoLino = analogRead(sensorACS);
 
   // Configura o pino do sensor de corrente como entrada
-  pinMode(pinoAnalogico, INPUT);
+  pinMode(sensorACS, INPUT);
   
   // Chama a função que imprime o valor lido pelo sensor de corrente
   imprimeValorAnalogico();
