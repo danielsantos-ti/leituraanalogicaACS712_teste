@@ -34,7 +34,9 @@ void loop() {
 
   // Configura o pino do sensor de corrente como entrada
   pinMode(pinoAnalogico, INPUT);
-  Serial.println(armazenaValorAnalogicoLino);
-  delay(1000);
+  
+  // Chama a função que imprime o valor lido pelo sensor de corrente
+  imprimeValorAnalogico();
+
 
 }
