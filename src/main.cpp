@@ -8,6 +8,15 @@ int pinoAnalogico = A0;
 int armazenaValorAnalogicoLino = 0;
 
 
+// Função que imprime o valor lido do sensor de corrente
+void imprimeValorAnalogico(){
+
+  Serial.println(armazenaValorAnalogicoLino);
+  delay(500);
+
+}
+
+
 // Função que imprime o valor lido pelo sensor de corrente
 void imprimeValorAnalogico(){
 
@@ -35,9 +44,7 @@ void loop() {
 
   // Configura o pino do sensor de corrente como entrada
   pinMode(pinoAnalogico, INPUT);
-
-  // Chama a função que imprime o valor lido pelo sensor de corrente
-  imprimeValorAnalogico();
-  
+  Serial.println(armazenaValorAnalogicoLino);
+  delay(1000);
 
 }
