@@ -40,7 +40,7 @@ void loop() {
   pinMode(sensorACS, INPUT);
   
   // Lê o valor do sensor de corrente
-  armazenaValorAnalogico = analogRead(pinoAnalogico);
+  armazenaValorAnalogico = analogRead(sensorACS);
 
   float corrente = (armazenaValorAnalogico - 512) / 66.0;
 
