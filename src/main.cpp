@@ -5,9 +5,11 @@
 int pinoAnalogico = A0;
 
 // Variável armazena valor lido
-int armazenaValorAnalogicoLino = 0;
+int armazenaValorAnalogico = 0;
 
 // Função que imprime o valor lido pelo sensor de corrente
+
+/*
 void imprimeValorAnalogico(){
 
   // imprime o valor lido pelo sensor de corrente
@@ -16,6 +18,8 @@ void imprimeValorAnalogico(){
   delay(1000);
 
 }
+*/
+
 
 // Função de configuração
 void setup() {
@@ -29,14 +33,21 @@ void setup() {
 // Função de execução
 void loop() {
   
-  // Lê o valor do sensor de corrente
-  armazenaValorAnalogicoLino = analogRead(pinoAnalogico);
-
   // Configura o pino do sensor de corrente como entrada
   pinMode(pinoAnalogico, INPUT);
   
+  // Lê o valor do sensor de corrente
+  armazenaValorAnalogico = analogRead(pinoAnalogico);
+
+  float corrente = (armazenaValorAnalogico - 512) / 66.0;
+
+  Serial.print("Corrente: ");
+  Serial.print(corrente);
+  Serial.println(" Ampere: ");
+  delay(1000);
+  
   // Chama a função que imprime o valor lido pelo sensor de corrente
-  imprimeValorAnalogico();
+  // imprimeValorAnalogico();
 
 
 }
