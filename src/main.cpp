@@ -7,19 +7,6 @@ int sensorACS = A0;
 // Variável armazena valor lido
 int armazenaValorAnalogico = 0;
 
-// Função que imprime o valor lido pelo sensor de corrente
-
-/*
-void imprimeValorAnalogico(){
-
-  // imprime o valor lido pelo sensor de corrente
-  Serial.println(armazenaValorAnalogicoLino);
-  // Intervalo de 1 segundo
-  delay(1000);
-
-}
-*/
-
 
 // Função de configuração
 void setup() {
