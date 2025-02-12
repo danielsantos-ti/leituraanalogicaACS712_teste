@@ -33,6 +33,10 @@ void loop() {
   armazenaValorAnalogicoLino = analogRead(pinoAnalogico);
 
   // Configura o pino do sensor de corrente como entrada
+  pinMode(pinoAnalogico, INPUT);
+  
+  // Chama a função que imprime o valor lido pelo sensor de corrente
   imprimeValorAnalogico();
+
 
 }
