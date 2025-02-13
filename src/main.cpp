@@ -19,7 +19,6 @@ void imprimeValorAnalogico(int valor){
   // Imprime o valor do sensor de corrente
   Serial.print("Corrente: ");
 
-  // TODO - CRIAR VARIÁVEL PARA CACULAR O VALOR APROXIMADO DA CORRENTE
   Serial.print(corrente);
   Serial.println(" mA ");
 
