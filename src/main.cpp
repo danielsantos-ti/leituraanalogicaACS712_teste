@@ -4,16 +4,30 @@
 // Pino de entrada do sensor de corrente ACS712 de 30A
 int sensorACS = A0;
 
-// Variável armazena valor lido
-int armazenaValorAnalogico = 0;
+// Função para ler o sensor de corrente
+int lerSensor(){
+  return analogRead(sensorACS);
+}
+
+
+// Função para imprimir o valor do sensor de corrente
+void imprimeValorAnalogico(int valor){
+
+  // Lê o valor do sensor de corrente
+  float corrente = (valor - 512) / 66.0;
+
+  // Imprime o valor do sensor de corrente
+  Serial.print("Corrente: ");
+  Serial.print(corrente);
+  Serial.println(" Ampere ");
+
+}
+
 
 // Função de configuração
 void setup() {
 
-  // Configura o pino do sensor de corrente como entrada
-  pinMode(sensorACS, INPUT);
-
-  // Inicializa a comunicação serial com baud rate de 9600
+  // Inicializa o monitor serial
   Serial.begin(9600);
   
 }
@@ -21,16 +35,9 @@ void setup() {
 // Função de execução
 void loop() {
   
-  // Lê o valor do sensor de corrente
-  armazenaValorAnalogico = analogRead(sensorACS);
+  int valorLido = lerSensor();
 
-  // Calcula a corrente em Ampere
-  float corrente = (armazenaValorAnalogico - 512) / 66.0;
+  imprimeValorAnalogico(valorLido);
 
-  // Imprime o valor da corrente no monitor serial
-  Serial.print("Corrente: ");
-  Serial.print(corrente);
-  Serial.println(" Ampere: ");
   delay(1000);
-
 }
