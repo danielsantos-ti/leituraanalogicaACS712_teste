@@ -14,12 +14,14 @@ int lerSensor(){
 void imprimeValorAnalogico(int valor){
 
   // Lê o valor do sensor de corrente
-  float corrente = (valor - 512) / 180.0;
+  float corrente = (valor - 512) * 1000 / 180.0;
 
   // Imprime o valor do sensor de corrente
   Serial.print("Corrente: ");
+
+  // TODO - CRIAR VARIÁVEL PARA CACULAR O VALOR APROXIMADO DA CORRENTE
   Serial.print(corrente);
-  Serial.println(" Ampere ");
+  Serial.println(" mA ");
 
 }
 
