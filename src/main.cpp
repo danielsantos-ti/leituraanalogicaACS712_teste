@@ -18,7 +18,6 @@ void setup() {
   
 }
 
-
 // Função de execução
 void loop() {
   
