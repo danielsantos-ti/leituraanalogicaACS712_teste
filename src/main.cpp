@@ -7,9 +7,11 @@ int sensorACS = A0;
 // Pino de saída do relé
 int pinoRele = 7;
 
-// Limite de corrente para ativar o relé (em mA)
+// Limites de corrente para ligar e desligar o relé
+float limiteLigado = 550.0;
+float limiteDesligado = 450.0;
 
-float limiteDeCorrente = 500.0;
+bool estadoDoRele = false;
 
 // Função para ler o sensor de corrente
 int lerSensor(){
@@ -19,17 +21,19 @@ int lerSensor(){
 
 void processaCorrente(int valor){
 
-  // Converte o valor Lido para corrente mA
+  // Converte o valor analógico em corrente mA
   float corrente = (valor - 512) * 1000 / 180.0;
 
   // Verfica se a corrente é maior que o limite
-  if(corrente > limiteDeCorrente){
+  if(!estadoDoRele && corrente > limiteLigado){
 
+    estadoDoRele = true;
     digitalWrite(pinoRele, HIGH);
     Serial.println("Relé ligado");
 
   }else{
 
+    estadoDoRele = false;
     digitalWrite(pinoRele, LOW);
     Serial.println("Relé desligado");
 
